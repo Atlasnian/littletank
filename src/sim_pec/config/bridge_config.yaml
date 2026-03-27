@@ -1,0 +1,70 @@
+
+# 时钟同步
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+#cmd_Vel桥接
+- ros_topic_name: "/cmd_vel"
+  gz_topic_name: "/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+  #odom桥接
+- ros_topic_name: "/odom"
+  gz_topic_name: "/odom"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "gz.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+# TF桥接 - 双向同步：Gazebo的odom->base_footprint传到ROS，ROS的base_footprint->base_link->...传到Gazebo
+- ros_topic_name: "/tf"
+  gz_topic_name: "/tf"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: BIDIRECTIONAL
+
+# IMU桥接
+- ros_topic_name: "/imu_data"
+  gz_topic_name: "/imu_data"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+  # 前激光雷达桥接 - 从Gazebo的激光雷达话题桥接到ROS2
+- ros_topic_name: "/front_scan"
+  gz_topic_name: "/front_scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+  remap:
+    gz_frame_id: "pec_robot/base_footprint/front_lidar"
+    ros_frame_id: "front_laser_link"
+
+  # 后激光雷达桥接 - 从Gazebo的激光雷达话题桥接到ROS2
+- ros_topic_name: "/back_scan"
+  gz_topic_name: "/back_scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+  remap:
+    gz_frame_id: "pec_robot/base_footprint/back_lidar"
+    ros_frame_id: "back_laser_link"
+
+#depth相机桥接 - 从Gazebo的深度相机话题桥接到ROS2
+- ros_topic_name: "/depth_camera/depth_image"
+  gz_topic_name: "/depth_camera/depth_image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+#RGB相机桥接 - 从Gazebo的RGB相机话题桥接到ROS2
+- ros_topic_name: "/depth_camera/image"
+  gz_topic_name: "/depth_camera/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+

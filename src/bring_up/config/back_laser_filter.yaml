@@ -1,0 +1,27 @@
+scan_to_scan_filter_chain:
+  ros__parameters:
+    filter1: 
+      name: shadow_filter
+      type: laser_filters/ScanShadowsFilter
+      params:
+        min_angle: 10.0
+        max_angle: 170.0
+        neighbors: 10
+        window: 1
+    filter2:
+      name: box_filter
+      type: laser_filters/LaserScanBoxFilter
+      params:
+        box_frame: base_link
+        min_x: -0.26
+        max_x: 0.26
+        min_y: -0.16
+        max_y: 0.16
+        min_z: -1.0
+        max_z: 1.0
+    filter3:
+      name: angle_filter
+      type: laser_filters/LaserScanAngularBoundsFilter #LaserScanAngularBoundsFilter是保留这个范围内的点，LaserScanAngularBoundsFilterInPlace是保留范围外的点
+      params:
+        lower_angle: -1.57
+        upper_angle: 1.57

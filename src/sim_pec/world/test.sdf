@@ -1,0 +1,265 @@
+<sdf version='1.10'>
+  <world name='test'>
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0.800000012 0.800000012 0.800000012 1</background>
+      <sky/>
+      <shadows>true</shadows>
+    </scene>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <include>
+      <uri>file:///home/netlab/littletank/model/ground_plane</uri>
+      <name>ground_plane</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/room_1</uri>
+      <name>room_1</name>
+      <pose>0 -8.8980406376393261e-14 0 0 0 -6.9944050551384862e-15</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/OfficeDesk</uri>
+      <name>Desk</name>
+      <pose>6.7620824314279009 12.860272601834739 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/OfficeDesk</uri>
+      <name>Desk_0</name>
+      <pose>4.1493747787143622 12.874964604784125 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/TrashBin</uri>
+      <name>TrashBin</name>
+      <pose>6.3766808178174372 12.255692693220558 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/OfficeChair</uri>
+      <name>OfficeChair</name>
+      <pose>6.8772280980041094 11.072586491260878 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Fridge</uri>
+      <name>Fridge</name>
+      <pose>-3.6569807561958321 14.568164366649139 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Desk</uri>
+      <name>Desk_1</name>
+      <pose>0.87276206673881962 12.71815974725865 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/SmallCabinet</uri>
+      <name>SmallCabinet</name>
+      <pose>-0.41002336144447327 9.5378828048706055 0 0 0 1.5831499837114982</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/SmallCabinet</uri>
+      <name>SmallCabinet_0</name>
+      <pose>-1.7794331312179565 9.5223541259765625 0 0 0 1.5804500156429153</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf</name>
+      <pose>-5.1350960731506348 5.7012200355529785 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_0</name>
+      <pose>0.35470044612884521 5.6946902275085449 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_1</name>
+      <pose>5.7979617118835449 5.6857600212097168 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf8</uri>
+      <name>parallel_bookshelf8_0</name>
+      <pose>-4.4163398742675781 0.40649399161338806 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf8</uri>
+      <name>parallel_bookshelf8</name>
+      <pose>-4.3691000938415527 -1.5968270301818848 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_4</name>
+      <pose>5.8309898376464844 3.415393590927124 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_2</name>
+      <pose>-5.1029801368713379 3.4118649959564209 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_3</name>
+      <pose>0.34131801128387451 3.4074697494506836 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_5</name>
+      <pose>3.8254399299621582 0.38708654046058655 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_6</name>
+      <pose>3.8127999305725098 -1.6205762624740601 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_7</name>
+      <pose>9.7981195449829137 1.1983799934387209 0 0 0 -1.5691499864563281</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/TrashBin</uri>
+      <name>TrashBin_0</name>
+      <pose>-9.6891644394485734 -13.282020231094457 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/TrashBin</uri>
+      <name>TrashBin_1</name>
+      <pose>-9.6791095733642578 -12.470083236694336 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf8</uri>
+      <name>parallel_bookshelf8_1</name>
+      <pose>-4.3656458854675293 -3.6343700885772705 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf8</uri>
+      <name>parallel_bookshelf8_2</name>
+      <pose>-4.359260082244873 -5.7270960807800293 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_8</name>
+      <pose>3.8221786022186279 -3.6305201053619385 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_9</name>
+      <pose>3.824993371963501 -5.7282199859619141 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/parallel_bookshelf</uri>
+      <name>parallel_bookshelf_10</name>
+      <pose>9.8034896850585938 -6.954826831817627 0 0 0 -1.5723499440971542</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Desk</uri>
+      <name>Desk_2</name>
+      <pose>7.4651691695873685 -11.076646801780173 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/OfficeChair</uri>
+      <name>OfficeChair_0</name>
+      <pose>7.9391703605651855 -11.096760749816895 0 0 0 1.5659399938650795</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/TrashBin</uri>
+      <name>TrashBin_2</name>
+      <pose>6.5127151549594453 -12.431244738378449 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Bambu_Lab_X1_Carbon</uri>
+      <name>Bambu_Lab_X1_Carbon</name>
+      <pose>2.5148599147796631 -12.538700103759766 0 0 0 3.1238984250891844</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/SmallCabinet</uri>
+      <name>SmallCabinet_1</name>
+      <pose>-0.35768786072731018 -12.627212524414062 0 0 0 1.5598100213909043</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Desk</uri>
+      <name>Desk_3</name>
+      <pose>3.2805795503500024 -9.4600486206081627 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Desk</uri>
+      <name>Desk_4</name>
+      <pose>2.6681299209594727 -9.4612398147583008 0 0 0 3.1385764502157252</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/OfficeChair</uri>
+      <name>OfficeChair_1</name>
+      <pose>4.0067882537841797 -9.4584827423095703 0 0 0 1.6094000087743732</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/OfficeChair</uri>
+      <name>OfficeChair_2</name>
+      <pose>2.097099781036377 -9.4804592132568359 0 0 0 -1.5745099719672271</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Desk</uri>
+      <name>Desk_5</name>
+      <pose>-1.2660163640975952 -9.4618396759033203 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/Desk</uri>
+      <name>Desk_6</name>
+      <pose>-1.8763636350631714 -9.4678792953491211 0 0 0 -3.1390199999781117</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/picturebox</uri>
+      <name>picturebox</name>
+      <pose>-4.8637199401855469 13.190799713134766 1.7760016918182373 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/picturebox2</uri>
+      <name>picturebox2</name>
+      <pose>-4.8631000518798828 12.08141040802002 1.776710033416748 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/banana</uri>
+      <name>banana</name>
+      <pose>-9.5310001373291016 -11.651000022888184 -0.038909111171960831 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/TV</uri>
+      <name>TV</name>
+      <pose>-3.4387121200561523 -12.455776214599609 0 0 0 1.5561899539282691</pose>
+    </include>
+    <include>
+      <uri>file:///home/netlab/littletank/model/G1</uri>
+      <name>G1</name>
+      <pose>-4.5723457336425781 -12.708077430725098 0.77747797966003418 0 0 1.556959996336619</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+  </world>
+</sdf>

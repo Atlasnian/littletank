@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find sim_pec)/urdf/common_inertia.xacro" />
+        <xacro:macro name="base_xacro" params="length width height">
+            <!-- 虚拟部件:base_footprint -->
+            <link name="base_footprint"/>
+
+            <!-- base_link基座 -->
+             <link name="base_link">
+                <!-- 外观 -->
+                <visual>
+                    <origin xyz="0 0 0.0" rpy="0 0 0" />
+                    <geometry>
+                        <box size="${length} ${width} ${height}" />
+                    </geometry>
+                    <material name="blue">
+                        <color rgba="0.1 0.1 1.0 0.7" />
+                    </material>
+                </visual>
+                <!-- 碰撞 -->
+                <!-- collision box高度减小并上移，避免与轮子重叠 -->
+                <collision>
+                    <origin xyz="0 0 0.05" rpy="0 0 0" />
+                    <geometry>
+                        <box size="${length} ${width} ${height-0.1}" />
+                    </geometry>
+                </collision>
+
+                <!-- 惯性与质量 -->
+                <xacro:box_inertia m="3.0" w="${length}" h="${width}" d="${height}" />
+             </link>
+
+            <!-- 连接base_link与base_footprint -->
+            <joint name="base_joint" type="fixed">
+                <parent link="base_footprint" />
+                <child link="base_link" />
+                <origin xyz="0.0 0.0 ${height/2.0+0.085}" rpy="0 0 0" />
+            </joint>
+
+        </xacro:macro>
+</robot>

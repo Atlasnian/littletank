@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="gazebo_sensor_plugin">
+
+        <!-- camera传感器 -->
+        <gazebo reference="camera_link">
+            <sensor name="rgbd_sensor" type="rgbd_camera">
+                <pose>0 0 0 0 0 0</pose>
+                <topic>/depth_camera</topic>
+                <update_rate>10</update_rate>
+                <enable_metrics>true</enable_metrics>
+                <camera>
+                    <horizontal_fov>1.047</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                    </image>
+                    
+                    <clip>
+                        <near>0.02</near>
+                        <far>30</far>
+                    </clip>
+                </camera>
+                
+                <always_on>1</always_on>
+                <visualize>true</visualize>
+            </sensor>
+            <!-- <sensor name="camera_sensor" type="camera">
+                <pose>0 0 0 0 0 0</pose>
+                <topic>camera</topic>
+                <gz_frame_id>camera_link</gz_frame_id>
+                <update_rate>30</update_rate>
+                <camera name="aa_camera">
+                    <horizontal_fov>1.5184364</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>RGB_INT8</format>
+                        <anti_aliasing>4</anti_aliasing>
+                    </image>
+
+                    <clip>
+                        <near>0.02</near>
+                        <far>30</far>
+                    </clip>
+
+                    <noise> 
+                        <type>gaussian</type> 
+                        <mean>0</mean> 
+                        <stddev>0.007</stddev>
+                    </noise>
+
+                    <triggered>false</triggered>
+                    <trigger_topic></trigger_topic>
+                    <camera_info_topic>__default__</camera_info_topic>
+                </camera>
+            </sensor>
+
+            <sensor name="depth_sensor" type="depth_camera">
+                <pose>0 0 0 0 0 0</pose>
+                <topic>depth</topic>
+                <gz_frame_id>camera_link</gz_frame_id>
+                <always_on>true</always_on>
+                <update_rate>10</update_rate>
+                <visualize>true</visualize>
+                <camera name="depth_camera">
+                    <horizontal_fov>1.047</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>R_FLOAT32</format>
+                    </image>
+                    <clip>
+                        <near>0.02</near>
+                        <far>20</far>
+                    </clip>
+                </camera>
+            </sensor> -->
+        </gazebo>
+
+        <!-- 前激光雷达传感器 -->
+        <gazebo reference="front_laser_link">
+            <sensor name="front_lidar" type="gpu_lidar">
+                <pose>0 0 0 0 0 0</pose>
+                <topic>front_scan</topic>
+                <gz_frame_id>front_laser_link</gz_frame_id>
+                <update_rate>10</update_rate>
+                <always_on>1</always_on>
+                <visualize>true</visualize>
+                <lidar>
+                    <scan> 
+                        <horizontal>
+                            <samples>1600</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-3.1415926</min_angle>
+                            <max_angle>3.1415926</max_angle>
+                        </horizontal>
+                        <vertical>
+                            <samples>1</samples>
+                            <resolution>1</resolution>
+                        </vertical>
+                    </scan>
+                    
+                    <range>
+                        <min>0.1</min>
+                        <max>20</max>
+                        <resolution>0.1</resolution>
+                    </range>
+                </lidar>
+            </sensor>    
+        </gazebo>
+
+        <!-- 后激光雷达传感器 -->
+        <gazebo reference="back_laser_link">
+            <sensor name="back_lidar" type="gpu_lidar">
+                <pose>0 0 0 0 0 0</pose>
+                <topic>back_scan</topic>
+                <gz_frame_id>back_laser_link</gz_frame_id>
+                <update_rate>10</update_rate>
+                <always_on>1</always_on>
+                <visualize>true</visualize>
+                <lidar>
+                    <scan> 
+                        <horizontal>
+                            <samples>1600</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-3.1415926</min_angle>
+                            <max_angle>3.1415926</max_angle>
+                        </horizontal>
+                        <vertical>
+                            <samples>1</samples>
+                            <resolution>1</resolution>
+                        </vertical>
+                    </scan>
+                    
+                    <range>
+                        <min>0.1</min>
+                        <max>20</max>
+                        <resolution>0.1</resolution>
+                    </range>
+                </lidar>
+            </sensor>    
+        </gazebo>
+
+        <!-- IMU传感器 -->
+        <gazebo reference="imu_link">
+            <sensor name="imu_sensor" type="imu">
+                <pose>0 0 0 0 0 0</pose>
+                <always_on>1</always_on> 
+                <topic>imu_data</topic>
+                <gz_frame_id>imu_link</gz_frame_id>
+                <update_rate>100</update_rate>
+            </sensor>
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>

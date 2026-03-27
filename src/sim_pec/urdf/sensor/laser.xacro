@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find sim_pec)/urdf/common_inertia.xacro" />
+        <xacro:macro name="laser_xacro" params="laser_name xyz rpy">
+
+        <!-- 雷达部件 -->
+         <link name="${laser_name}_laser_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.02" radius="0.03" />
+                </geometry>
+                <material name="red">
+                    <color rgba="1.0 0.1 0.1 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.02" radius="0.03" />
+                </geometry>
+                <material name="red">
+                    <color rgba="1.0 0.1 0.1 1.0"/>
+                </material>
+            </collision>
+            <xacro:cylinder_inertia m="0.3" r="0.03" h="0.02" rpy="0 0 0"/>
+         </link>
+
+
+        <!-- laser_base_link与laser_link连接 -->
+        <joint name="${laser_name}_laser_joint" type="fixed">
+                <parent link="${laser_name}_laser_base_link" />
+                <child link="${laser_name}_laser_link" />
+                <origin xyz="${xyz}" rpy="${rpy}" />
+        </joint>
+
+    </xacro:macro>
+</robot>

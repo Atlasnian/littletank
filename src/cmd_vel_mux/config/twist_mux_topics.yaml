@@ -1,0 +1,40 @@
+twist_mux:
+  ros__parameters:
+    use_stamped :  false
+    topics:
+    # 导航速度，优先级最低
+      navigation:
+        topic   : move_base_cmd_vel
+        timeout : 0.5
+        priority: 10
+
+    # 盘点速度，优先级也低
+      stocktaking:
+        topic   : stocktaking_cmd_vel
+        timeout : 0.5
+        priority: 20
+    # 键盘控制，优先级90
+      keyboard:
+        topic   : key_op_cmd_vel
+        timeout : 0.5
+        priority: 90
+    #手柄控制，优先级100
+      joystick:
+        topic   : joyop_cmd_vel
+        timeout : 0.5
+        priority: 100
+    # 下面的碰撞挡板触发后退，优先级 100~200
+      move_backward:
+        topic   : back_vel
+        timeout : 1.0
+        priority: 100
+    # 碰撞检测保护，优先级 200
+      collision:
+        topic   : collision_vel
+        timeout : 2.0
+        priority: 200
+    # 悬崖检测保护，优先级 500 
+      fall_protection:
+        topic   : fallpro_vel
+        timeout : 10.0
+        priority: 500

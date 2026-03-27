@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="gazebo_link_setting">
+
+        <!-- Gazebo base_link配置 -->
+        <gazebo reference="base_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+        <!-- Gazebo左轮子物理参数 -->
+        <gazebo reference="left_wheel_link">
+            <material>Gazebo/Yellow</material>
+            <mu1>1.0</mu1>  <!-- 摩擦系数1 -->
+            <mu2>1.0</mu2>  <!-- 摩擦系数2 -->
+            <kp>1000000.0</kp>  <!-- 接触刚度 -->
+            <kd>100.0</kd>  <!-- 接触阻尼 -->
+            <minDepth>0.001</minDepth>
+            <maxVel>1.0</maxVel>
+        </gazebo>
+
+        <!-- Gazebo右轮子物理参数 -->
+        <gazebo reference="right_wheel_link">
+            <material>Gazebo/Yellow</material>
+            <mu1>1.0</mu1>  <!-- 摩擦系数1 -->
+            <mu2>1.0</mu2>  <!-- 摩擦系数2 -->
+            <kp>1000000.0</kp>  <!-- 接触刚度 -->
+            <kd>100.0</kd>  <!-- 接触阻尼 -->
+            <minDepth>0.001</minDepth>
+            <maxVel>1.0</maxVel>
+        </gazebo>
+
+        <!-- Gazebo万向轮物理参数 - 低摩擦力 -->
+        <gazebo reference="LF_caster_link">
+            <material>Gazebo/Grey</material>
+            <mu1>0.01</mu1>  <!-- 低摩擦系数 -->
+            <mu2>0.01</mu2>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>1.0</maxVel>
+        </gazebo>
+
+        <!-- Gazebo万向轮物理参数 - 低摩擦力 -->
+        <gazebo reference="RF_caster_link">
+            <material>Gazebo/Grey</material>
+            <mu1>0.01</mu1>  <!-- 低摩擦系数 -->
+            <mu2>0.01</mu2>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>1.0</maxVel>
+        </gazebo>
+
+        <!-- Gazebo万向轮物理参数 - 低摩擦力 -->
+        <gazebo reference="LB_caster_link">
+            <material>Gazebo/Grey</material>
+            <mu1>0.01</mu1>  <!-- 低摩擦系数 -->
+            <mu2>0.01</mu2>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>1.0</maxVel>
+        </gazebo>
+
+        <!-- Gazebo万向轮物理参数 - 低摩擦力 -->
+        <gazebo reference="RB_caster_link">
+            <material>Gazebo/Grey</material>
+            <mu1>0.01</mu1>  <!-- 低摩擦系数 -->
+            <mu2>0.01</mu2>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>1.0</maxVel>
+        </gazebo>
+
+        <!-- 雷达设置 -->
+        <gazebo reference="front_laser_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+        <gazebo reference="back_laser_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+        <!-- 摄像头设置 -->
+        <gazebo reference="camera_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+        <!-- IMU设置 -->
+        <gazebo reference="imu_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+    </xacro:macro>
+</robot>

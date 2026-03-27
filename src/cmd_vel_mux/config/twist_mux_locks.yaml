@@ -1,0 +1,11 @@
+twist_mux :
+  ros__parameters :
+    locks :
+      stop :
+        topic    : stop_navigation
+        timeout  : 0.0
+        priority : 50
+
+# 这里应该写上悬崖保护 true/false的topic 因为直接要关机了，就不用了
+
+

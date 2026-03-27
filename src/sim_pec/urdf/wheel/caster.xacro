@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find sim_pec)/urdf/common_inertia.xacro" />
+        <xacro:macro name="caster_xacro" params="caster_name xyz">
+            <!-- 万向轮部件 -->
+            <link name="${caster_name}_caster_link">
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <geometry>
+                        <sphere radius="0.03" />
+                    </geometry>
+                    <material name="gray">
+                        <color rgba="0.5 0.5 0.5 0.9"/>
+                    </material>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <geometry>
+                        <sphere radius="0.03" />
+                    </geometry>
+                    <material name="gray">
+                        <color rgba="0.5 0.5 0.5 0.9"/>
+                    </material>
+                </collision>
+                <xacro:sphere_inertia m="0.01" r="0.03" />
+            </link>
+
+            <!-- 连接杆部件 -->
+            <link name="${caster_name}_connect_link">
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <geometry>
+                        <cylinder length="0.025" radius="0.01" />
+                    </geometry>
+                    <material name="green">
+                        <color rgba="0.0 1.0 0.0 0.9"/>
+                    </material>
+                </visual>
+                <xacro:cylinder_inertia m="0.01" r="0.01" h="0.025" rpy="0 0 0" />
+            </link>
+
+
+            <!-- 连接 连接件和万向轮 -->
+            <joint name="${caster_name}_caster_joint" type="fixed">
+                <parent link="${caster_name}_connect_link" />
+                <child link="${caster_name}_caster_link" />
+                <origin xyz="0 0 -0.0425" />
+                <axis xyz="0 0 0" />
+            </joint>
+
+            <!-- 连接 连接件和base_link -->
+            <joint name="${caster_name}_connect_joint" type="fixed">
+                <parent link="base_link" />
+                <child link="${caster_name}_connect_link" />
+                <origin xyz="${xyz}" />
+                <axis xyz="0 0 0" />
+            </joint>
+
+        </xacro:macro>
+</robot>

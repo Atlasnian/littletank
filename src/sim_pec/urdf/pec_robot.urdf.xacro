@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pec_robot">
+    <!-- 索引 -->
+     <!-- base_link -->
+    <xacro:include filename="$(find sim_pec)/urdf/base/base.xacro" />
+    <xacro:include filename="$(find sim_pec)/urdf/base/laser_base.xacro" />
+    <!-- wheel  -->
+    <xacro:include filename="$(find sim_pec)/urdf/wheel/wheel.xacro" />
+
+    <!-- caster  -->
+    <xacro:include filename="$(find sim_pec)/urdf/wheel/caster.xacro" />
+
+    <!-- laser -->
+    <xacro:include filename="$(find sim_pec)/urdf/sensor/laser.xacro" />
+
+    <!-- camera -->
+    <xacro:include filename="$(find sim_pec)/urdf/sensor/camera.xacro" />
+
+    <!-- imu -->
+    <xacro:include filename="$(find sim_pec)/urdf/sensor/imu.xacro" />
+    
+    <!-- gazebo control插件 -->
+    <xacro:include filename="$(find sim_pec)/urdf/gazebo_setting/gazebo_control_plugin.xacro" />
+    <!-- gazebo sensor插件 -->
+    <xacro:include filename="$(find sim_pec)/urdf/gazebo_setting/gazebo_sensor_plugin.xacro" />
+    <!-- gazebo link设置 -->
+    <xacro:include filename="$(find sim_pec)/urdf/gazebo_setting/gazebo_link_setting.xacro" />
+
+    <!-- 应用 -->
+    <!-- 基座尺寸 -->
+    <xacro:base_xacro length="0.52" width="0.32" height="0.2" />
+    <xacro:laser_base_xacro laser_base_name="front" xyz="0.3 0.0 -0.095" />
+    <xacro:laser_base_xacro laser_base_name="back" xyz="-0.3 0.0 -0.095" />
+
+    <!-- 轮子 -->
+     <!-- 轮间距0.32，轮半径0.085 -->
+    <xacro:wheel_xacro wheel_name="left" xyz="0.0 0.16 -0.1" />
+    <xacro:wheel_xacro wheel_name="right" xyz="0.0 -0.16 -0.1" />
+
+    <!-- caster x和y轴各收0.3 -->
+     <!-- 万向轮要比主动轮高一点点,0.3cm即可 -->
+    <xacro:caster_xacro caster_name="LF" xyz="0.23 0.13 -0.1122" />
+    <xacro:caster_xacro caster_name="RF" xyz="0.23 -0.13 -0.1122" />
+    <xacro:caster_xacro caster_name="LB" xyz="-0.23 0.13 -0.1122" />
+    <xacro:caster_xacro caster_name="RB" xyz="-0.23 -0.13 -0.1122" />
+
+    <!-- laser -->
+    <xacro:laser_xacro laser_name="front" xyz="0 0 -0.015" rpy="0 0 0" />
+    <xacro:laser_xacro laser_name="back" xyz="0 0 -0.015" rpy="0 0 3.1415926" />
+
+
+    <!-- camera -->
+     <!-- 30°对应0.5235987 -->
+    <xacro:camera_xacro xyz="0.25 0 0.11" rpy="0 0 0" cylinder_length="0.02"/>
+
+    <!-- imu -->
+    <xacro:imu_xacro xyz="0.0 0.0 0.0" />
+
+    <!-- 应用gazebo控制插件 -->
+    <xacro:gazebo_control_plugin />
+    <!-- 应用gazebo传感器插件 -->
+    <xacro:gazebo_sensor_plugin />
+    <!-- 应用gazebo link设置 -->
+    <xacro:gazebo_link_setting />
+
+</robot>
